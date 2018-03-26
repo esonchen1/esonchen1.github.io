@@ -15,12 +15,22 @@
 <meta property="og:site_name" content="esonchen&#39;s blog">
 <meta property="og:description" content="ssm+shiro框架练习重要的事情先说 实现了图书馆里的，登录&amp;amp;注册（md5加密），模糊、分页查询书籍等功能 前端是自己练习的时候敲的，没有用框架，有点丑 除了图书馆有写后台，其他都没写，直接点图书馆就好了 github  进入正题 首页映射路径是http://localhost:8080/index/ 直接点到图书馆把，其他懒得看了">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/2018/03/26/ssm-shiro/login.jpg">
-<meta property="og:updated_time" content="2018-03-26T06:08:21.527Z">
+<meta property="og:image" content="http://yoursite.com/2018/03/26/ssm-shiro/register.png">
+<meta property="og:image" content="http://yoursite.com/2018/03/26/ssm-shiro/register1.png">
+<meta property="og:image" content="http://yoursite.com/2018/03/26/ssm-shiro/library.png">
+<meta property="og:image" content="http://yoursite.com/2018/03/26/ssm-shiro/login.png">
+<meta property="og:image" content="http://yoursite.com/2018/03/26/ssm-shiro/passwordcheck.png">
+<meta property="og:image" content="http://yoursite.com/2018/03/26/ssm-shiro/password.png">
+<meta property="og:image" content="http://yoursite.com/2018/03/26/ssm-shiro/admin.png">
+<meta property="og:image" content="http://yoursite.com/2018/03/26/ssm-shiro/user.png">
+<meta property="og:image" content="http://yoursite.com/2018/03/26/ssm-shiro/search.png">
+<meta property="og:image" content="http://yoursite.com/2018/03/26/ssm-shiro/searchByword.png">
+<meta property="og:image" content="http://yoursite.com/2018/03/26/ssm-shiro/userBorrow.png">
+<meta property="og:updated_time" content="2018-03-26T06:39:38.275Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ssm+shiro">
 <meta name="twitter:description" content="ssm+shiro框架练习重要的事情先说 实现了图书馆里的，登录&amp;amp;注册（md5加密），模糊、分页查询书籍等功能 前端是自己练习的时候敲的，没有用框架，有点丑 除了图书馆有写后台，其他都没写，直接点图书馆就好了 github  进入正题 首页映射路径是http://localhost:8080/index/ 直接点到图书馆把，其他懒得看了">
-<meta name="twitter:image" content="http://yoursite.com/2018/03/26/ssm-shiro/login.jpg">
+<meta name="twitter:image" content="http://yoursite.com/2018/03/26/ssm-shiro/register.png">
   
   
     <link rel="icon" href="/img/tz.ico">
@@ -186,7 +196,19 @@ var _hmt = _hmt || [];
 <li>首页映射路径是<a href="http://localhost:8080/index/" target="_blank" rel="noopener">http://localhost:8080/index/</a></li>
 <li>直接点到图书馆把，其他懒得看了</li>
 </ul>
-<p><img src="/2018/03/26/ssm-shiro/login.jpg" alt="login"></p>
+<a id="more"></a>
+<h3 id="注册"><a href="#注册" class="headerlink" title="注册"></a>注册</h3><p><img src="/2018/03/26/ssm-shiro/register.png" alt="register"></p>
+<h4 id="在service进行md5加密入库就ok了"><a href="#在service进行md5加密入库就ok了" class="headerlink" title="在service进行md5加密入库就ok了"></a>在service进行md5加密入库就ok了</h4><p><img src="/2018/03/26/ssm-shiro/register1.png" alt="database"></p>
+<h3 id="未登录的时候"><a href="#未登录的时候" class="headerlink" title="未登录的时候"></a>未登录的时候</h3><p><img src="/2018/03/26/ssm-shiro/library.png" alt="library"></p>
+<h3 id="登录之后"><a href="#登录之后" class="headerlink" title="登录之后"></a>登录之后</h3><p><img src="/2018/03/26/ssm-shiro/login.png" alt="login"></p>
+<h3 id="shiro认证登录过程"><a href="#shiro认证登录过程" class="headerlink" title="shiro认证登录过程"></a>shiro认证登录过程</h3><p><img src="/2018/03/26/ssm-shiro/passwordcheck.png" alt="passwordcheck"><br><img src="/2018/03/26/ssm-shiro/password.png" alt="password"></p>
+<h4 id="doCredentialsMatch通过shiro的xml配置文件进行md5加密后与数据库取出的值进行校验"><a href="#doCredentialsMatch通过shiro的xml配置文件进行md5加密后与数据库取出的值进行校验" class="headerlink" title="doCredentialsMatch通过shiro的xml配置文件进行md5加密后与数据库取出的值进行校验"></a>doCredentialsMatch通过shiro的xml配置文件进行md5加密后与数据库取出的值进行校验</h4><h3 id="shiro的hasRole判断用户角色"><a href="#shiro的hasRole判断用户角色" class="headerlink" title="shiro的hasRole判断用户角色"></a>shiro的hasRole判断用户角色</h3><p><img src="/2018/03/26/ssm-shiro/admin.png" alt="admin"><br><img src="/2018/03/26/ssm-shiro/user.png" alt="user"></p>
+<h3 id="模糊，分页查询"><a href="#模糊，分页查询" class="headerlink" title="模糊，分页查询"></a>模糊，分页查询</h3><p><img src="/2018/03/26/ssm-shiro/search.png" alt="search"><br><img src="/2018/03/26/ssm-shiro/searchByword.png" alt="searchByword"></p>
+<h3 id="借书记录查询"><a href="#借书记录查询" class="headerlink" title="借书记录查询"></a>借书记录查询</h3><p><img src="/2018/03/26/ssm-shiro/userBorrow.png" alt="userBorrow"></p>
+<h3 id="大概就写了这么多，有些没有截图"><a href="#大概就写了这么多，有些没有截图" class="headerlink" title="大概就写了这么多，有些没有截图"></a>大概就写了这么多，有些没有截图</h3><ul>
+<li>容我再放一遍github地址</li>
+<li><a href="https://github.com/esonchen1/ssm-test" target="_blank" rel="noopener">github</a></li>
+</ul>
 
       
 
