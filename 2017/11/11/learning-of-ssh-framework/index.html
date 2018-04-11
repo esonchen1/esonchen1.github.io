@@ -6,15 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017 | esonchen&#39;s blog</title>
+  <title>learning of ssh framework | esonchen&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="esonchen&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/archives/2017/index.html">
+  <meta name="description" content="学习之SSH-FRAMEWORK前言 前段时间刚学完servlet&amp;amp;jsp，于是萌生了用学习框架的想法。因为听说SSH和SSM框架是很相似的，但是SSH只有很少老旧的项目仍在使用，于是决定先进行SSH框架的学习 SSH框架，即struts+spring+hibernate的简称，struts负责mvc分离便于代码管理，spring用来控制反转和面向切面（毕竟java是面向对象的语音嘛），h">
+<meta property="og:type" content="article">
+<meta property="og:title" content="learning of ssh framework">
+<meta property="og:url" content="http://yoursite.com/2017/11/11/learning-of-ssh-framework/index.html">
 <meta property="og:site_name" content="esonchen&#39;s blog">
+<meta property="og:description" content="学习之SSH-FRAMEWORK前言 前段时间刚学完servlet&amp;amp;jsp，于是萌生了用学习框架的想法。因为听说SSH和SSM框架是很相似的，但是SSH只有很少老旧的项目仍在使用，于是决定先进行SSH框架的学习 SSH框架，即struts+spring+hibernate的简称，struts负责mvc分离便于代码管理，spring用来控制反转和面向切面（毕竟java是面向对象的语音嘛），h">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2017/11/11/learning-of-ssh-framework/gcjg.png">
+<meta property="og:updated_time" content="2018-04-11T06:26:56.653Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="esonchen&#39;s blog">
+<meta name="twitter:title" content="learning of ssh framework">
+<meta name="twitter:description" content="学习之SSH-FRAMEWORK前言 前段时间刚学完servlet&amp;amp;jsp，于是萌生了用学习框架的想法。因为听说SSH和SSM框架是很相似的，但是SSH只有很少老旧的项目仍在使用，于是决定先进行SSH框架的学习 SSH框架，即struts+spring+hibernate的简称，struts负责mvc分离便于代码管理，spring用来控制反转和面向切面（毕竟java是面向对象的语音嘛），h">
+<meta name="twitter:image" content="http://yoursite.com/2017/11/11/learning-of-ssh-framework/gcjg.png">
   
   
     <link rel="icon" href="/img/tz.ico">
@@ -150,76 +156,326 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-learning-of-ssh-framework" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      learning of ssh framework
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/11/learning-of-ssh-framework/" class="archive-article-date">
+
+        
+        <a href="/2017/11/11/learning-of-ssh-framework/" class="archive-article-date">
   	<time datetime="2017-11-11T01:19:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-11</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/11/learning-of-ssh-framework/">learning of ssh framework</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="学习之SSH-FRAMEWORK"><a href="#学习之SSH-FRAMEWORK" class="headerlink" title="学习之SSH-FRAMEWORK"></a>学习之SSH-FRAMEWORK</h1><h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><ul>
+<li>前段时间刚学完servlet&amp;jsp，于是萌生了用学习框架的想法。因为听说SSH和SSM框架是很相似的，但是SSH只有很少老旧的项目仍在使用，于是决定先进行SSH框架的学习</li>
+<li>SSH框架，即struts+spring+hibernate的简称，struts负责mvc分离便于代码管理，spring用来控制反转和面向切面（毕竟java是面向对象的语音嘛），hibernate负责持久层和数据库交互</li>
+<li>本次练习用maven管理依赖，pom.xml文件不另外贴出，<a href="https://github.com/esonchen1/ssh-test" target="_blank" rel="noopener">github</a><a id="more"></a>
+</li>
+</ul>
+<h4 id="工程结构"><a href="#工程结构" class="headerlink" title="工程结构"></a>工程结构</h4><p><img src="/2017/11/11/learning-of-ssh-framework/gcjg.png" alt="工程结构"></p>
+<h4 id="web-xml"><a href="#web-xml" class="headerlink" title="web.xml"></a>web.xml</h4><pre><code>&lt;!DOCTYPE web-app PUBLIC
+    &quot;-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN&quot;
+    &quot;http://java.sun.com/dtd/web-app_2_3.dtd&quot; &gt;
+&lt;web-app xmlns=&quot;http://java.sun.com/xml/ns/javaee&quot;
+     xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+     xsi:schemaLocation=&quot;http://java.sun.com/xml/ns/javaee
+                  http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd&quot;
+     version=&quot;3.0&quot;&gt;
+&lt;!-- 配置Struts2过滤器 --&gt;
+&lt;filter&gt;
+    &lt;filter-name&gt;struts2&lt;/filter-name&gt;
+    &lt;filter-class&gt;org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter&lt;/filter-class&gt;
+&lt;/filter&gt;
+&lt;filter-mapping&gt;
+    &lt;filter-name&gt;struts2&lt;/filter-name&gt;
+    &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+&lt;/filter-mapping&gt;
+&lt;!-- 配置Spring的监听器 --&gt;
+&lt;listener&gt;
+    &lt;listener-class&gt;org.springframework.web.context.ContextLoaderListener&lt;/listener-class&gt;
+&lt;/listener&gt;
+&lt;!-- 指定Spring配置文件所在路径 --&gt;
+&lt;context-param&gt;
+    &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+    &lt;param-value&gt;classpath:spring/spring.xml&lt;/param-value&gt;
+&lt;/context-param&gt;
+&lt;/web-app&gt;
+</code></pre><p>web.xml中配置拦截器对struts的请求进行拦截，配置spring，将所有配置加载进spring容器中。</p>
+<h4 id="spring-xml"><a href="#spring-xml" class="headerlink" title="spring.xml"></a>spring.xml</h4><pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+   xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+   xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+   xmlns:tx=&quot;http://www.springframework.org/schema/tx&quot;
+   xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot;
+   xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop.xsd&quot;&gt;
 
-        <div class="article-info info-on-right">
-          
-          
+&lt;context:component-scan base-package=&quot;com.jld.ssh.action&quot;/&gt;
 
+&lt;!-- 配置数据库相关参数properties的属性：${url} --&gt;
+&lt;context:property-placeholder location=&quot;classpath:jdbc.properties&quot;/&gt;
+&lt;!-- 配置dbcp连接池 --&gt;
+&lt;bean id=&quot;dataSource&quot; class=&quot;org.apache.commons.dbcp.BasicDataSource&quot; destroy-method=&quot;close&quot;&gt;
+    &lt;!-- 数据库连接相关信息 --&gt;
+    &lt;property name=&quot;url&quot; value=&quot;${jdbc.url}&quot;/&gt;
+    &lt;property name=&quot;driverClassName&quot; value=&quot;${jdbc.driverClass}&quot;/&gt;
+    &lt;property name=&quot;username&quot; value=&quot;${jdbc.username}&quot;/&gt;
+    &lt;property name=&quot;password&quot; value=&quot;${jdbc.password}&quot;/&gt;
+&lt;/bean&gt;
+
+&lt;!-- 配置Hibernate的SessionFactory --&gt;
+&lt;bean id=&quot;sessionFactory&quot; class=&quot;org.springframework.orm.hibernate5.LocalSessionFactoryBean&quot;&gt;
+    &lt;!-- 数据库连接池 --&gt;
+    &lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot;/&gt;
+    &lt;!-- 配置Hibernate属性 --&gt;
+    &lt;property name=&quot;hibernateProperties&quot;&gt;
+        &lt;props&gt;
+            &lt;prop key=&quot;hibernate.show_sql&quot;&gt;true&lt;/prop&gt;&lt;!-- 是否展示SQL --&gt;
+            &lt;prop key=&quot;hibernate.hbm2ddl.auto&quot;&gt;update&lt;/prop&gt;&lt;!-- 是否自动创建表结构 --&gt;
+            &lt;prop key=&quot;hibernate.dialect&quot;&gt;org.hibernate.dialect.MySQL5InnoDBDialect&lt;/prop&gt;
+        &lt;/props&gt;
+    &lt;/property&gt;
+    &lt;!-- 扫描并加载注解过的实体类 --&gt;
+    &lt;property name=&quot;packagesToScan&quot; value=&quot;com.jld.ssh.enity&quot;/&gt;
+&lt;/bean&gt;
+
+&lt;!-- 配置事务管理器 --&gt;
+&lt;bean id=&quot;transactionManager&quot; class=&quot;org.springframework.orm.hibernate5.HibernateTransactionManager&quot;&gt;
+    &lt;!-- 注入SessionFactory --&gt;
+    &lt;property name=&quot;sessionFactory&quot; ref=&quot;sessionFactory&quot;/&gt;
+&lt;/bean&gt;
+
+&lt;!-- 配置事务增强 --&gt;
+&lt;tx:advice id=&quot;txAdvice&quot; transaction-manager=&quot;transactionManager&quot;&gt;
+    &lt;tx:attributes&gt;
+        &lt;!-- 配置需要进行事务管理的方法，和事务传播行为 --&gt;
+        &lt;tx:method name=&quot;save*&quot; propagation=&quot;REQUIRED&quot;/&gt;
+        &lt;tx:method name=&quot;update*&quot; propagation=&quot;REQUIRED&quot;/&gt;
+        &lt;tx:method name=&quot;delete*&quot; propagation=&quot;REQUIRED&quot;/&gt;
+    &lt;/tx:attributes&gt;
+&lt;/tx:advice&gt;
+
+&lt;!-- 配置切面 --&gt;
+&lt;aop:config&gt;
+    &lt;!-- 配置切入点 com.yjq.ssh.*.service.*+.*(..)* org.ssh.service.*+.*(..)
+            *：表示方法的作用域，*表示所有
+            org.ssh.service.*：表示org.ssh.service下的任何包
+            org.ssh.service.*+：表示org.ssh.service下的任何包及其子包
+            *(..)：*表示任何方法，(..)表示方法的任何参数
+     --&gt;
+    &lt;aop:pointcut id=&quot;pointcut&quot; expression=&quot;execution(* com.jld.ssh.service.*.*(..))&quot;/&gt;
+    &lt;!-- 适配切入点和事务增强 --&gt;
+    &lt;aop:advisor advice-ref=&quot;txAdvice&quot; pointcut-ref=&quot;pointcut&quot;/&gt;
+&lt;/aop:config&gt;
+
+&lt;bean id=&quot;userAction&quot; class=&quot;com.jld.ssh.action.UserAction&quot; scope=&quot;prototype&quot;&gt;
+&lt;/bean&gt;
+
+
+&lt;bean id=&quot;userService&quot; class=&quot;com.jld.ssh.service.impl.UserServiceImpl&quot;&gt;
+    &lt;property name=&quot;userDao&quot; ref=&quot;userDaoImpl&quot;&gt;&lt;/property&gt;
+&lt;/bean&gt;
+
+&lt;bean id=&quot;userDaoImpl&quot; class=&quot;com.jld.ssh.dao.impl.UserDaoImpl&quot;&gt;
+    &lt;property name=&quot;hibernateTemplate&quot; ref=&quot;hibernateTemplate&quot;/&gt;
+&lt;/bean&gt;
+
+&lt;bean id=&quot;hibernateTemplate&quot; class=&quot;org.springframework.orm.hibernate5.HibernateTemplate&quot;&gt;
+    &lt;property name=&quot;sessionFactory&quot; ref=&quot;sessionFactory&quot;/&gt;
+    &lt;property name=&quot;checkWriteOperations&quot; value=&quot;false&quot;/&gt;
+&lt;/bean&gt;
+&lt;/beans&gt;
+</code></pre><h4 id="struts-xml"><a href="#struts-xml" class="headerlink" title="struts.xml"></a>struts.xml</h4><pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE struts PUBLIC
+    &quot;-//Apache Software Foundation//DTD Struts Configuration 2.5//EN&quot;
+    &quot;http://struts.apache.org/dtds/struts-2.5.dtd&quot;&gt;
+&lt;struts&gt;
+&lt;!-- 指定由spring负责action对象的创建 --&gt;
+&lt;constant name=&quot;struts.objectFactory&quot; value=&quot;spring&quot;/&gt;
+&lt;!-- 所有匹配*.action的请求都由struts2处理 --&gt;
+&lt;constant name=&quot;struts.action.extension&quot; value=&quot;do&quot;/&gt;
+&lt;!-- 是否启用开发模式 --&gt;
+&lt;constant name=&quot;struts.devMode&quot; value=&quot;true&quot;/&gt;
+&lt;!-- struts配置文件改动后，是aa否重新加载 --&gt;
+&lt;constant name=&quot;struts.configuration.xml.reload&quot; value=&quot;true&quot;/&gt;
+&lt;!-- 设置浏览器是否缓存静态内容 --&gt;
+&lt;constant name=&quot;struts.serve.static.browserCache&quot; value=&quot;false&quot;/&gt;
+&lt;!-- 请求参数的编码方式 --&gt;
+&lt;constant name=&quot;struts.i18n.encoding&quot; value=&quot;utf-8&quot;/&gt;
+&lt;!-- 每次HTTP请求系统都重新加载资源文件，有助于开发 --&gt;
+&lt;constant name=&quot;struts.i18n.reload&quot; value=&quot;true&quot;/&gt;
+&lt;!-- 文件上传最大值 --&gt;
+&lt;constant name=&quot;struts.multipart.maxSize&quot; value=&quot;104857600&quot;/&gt;
+&lt;!-- 让struts2支持动态方法调用 --&gt;
+&lt;constant name=&quot;struts.enable.DynamicMethodInvocation&quot; value=&quot;true&quot;/&gt;
+&lt;!-- action名称中是否还是用斜线 --&gt;
+&lt;constant name=&quot;struts.enable.SlashesInActionNames&quot; value=&quot;false&quot;/&gt;
+&lt;!-- 允许标签中使用表达式语法 --&gt;
+&lt;constant name=&quot;struts.tag.altSyntax&quot; value=&quot;true&quot;/&gt;
+&lt;!-- 对于WebLogic,Orion,OC4J此属性应该设置成true --&gt;
+&lt;constant name=&quot;struts.dispatcher.parametersWorkaround&quot; value=&quot;false&quot;/&gt;
+
+&lt;package name=&quot;user&quot; extends=&quot;struts-default&quot; namespace=&quot;/&quot;
+         strict-method-invocation=&quot;false&quot;&gt;
+    &lt;action name=&quot;userAction&quot; class=&quot;userAction&quot; method=&quot;asd&quot;&gt;
+
+    &lt;/action&gt;
+&lt;/package&gt;
+&lt;/struts&gt;
+</code></pre>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/11/11/learning-of-ssh-framework/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/11/hackApple/" class="archive-article-date">
-  	<time datetime="2017-03-10T22:27:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-11</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2018/03/26/ssm-shiro/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          ssm+shiro
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/11/hackApple/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hackinstosh</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/11/hackApple/">Hackinstosh</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -242,8 +498,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
